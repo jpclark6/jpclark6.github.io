@@ -1,3 +1,65 @@
-.upside-down {
-  color: red;
+html {
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+nav {
+  background-color: #404041;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 48px;
+  padding: 18px;
+  margin: 0;
+  text-align: center;
+}
+
+#title-1 {
+  color: #ED468B;
+  font-weight: 700;
+}
+
+#title-2 {
+  color: #E6E7E8;
+  font-weight: 300;
+}
+
+.guess {
+  width: 350px;
+  height: 30px;
+  margin: 40px auto 36px auto;
+  font-size: 20px;
+  margin-left: 22px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border-radius: 18px;
+  height: 36px;
+  font-size: 18px;
+  color: white;
+  background-color: #929497;
+}
+
+button:hover {
+  background-color: #EB028B;
+}
+
+.play-button {
+  margin: 0 20px;
+  width: 150px;
 }

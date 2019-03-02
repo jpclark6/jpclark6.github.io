@@ -5,20 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
 </head>
 <body>
-  <h1>Number Guessing Game</h1>
-  <p>Last Guess: <span class='last-guess'></span></p>
-  <p class='last-guess-result'></p>
-  <form>
-    Enter Guess: <input type='number' class='guess' min='1' max='100'>
-  </form>
-  <button class='clear'>Clear</button>
-  <button class='reset'>Reset</button>
-  <button class='submit-guess'>Guess</button>
+  <nav>
+    <h1><span id='title-1'>Number</span> <span id='title-2'>Guesser</span></h1>
+  </nav>
+  <section>
+    <form>
+      <input type='number' class='guess' min='1' max='100' placeholder='Enter your guess'>
+    </form>
+    <div class='buttons'>
+      <button class='play-button submit-guess'>Guess</button>
+      <button class='play-button clear'>Clear</button>
+    </div>
+    <p>Your last guess way</p> 
+    <span class='last-guess'></span>
+    <p class='last-guess-result'></p>
+    
+    <button class='reset'>Reset</button>
+    
+    <form>
+      Min: <input type='number' class='min-number'>
+      Max: <input type='number' class='max-number'>
+    </form>
+    <button class='change-range'>Change Range</button>
+    <h2>Currently guessing between <span class='low'></span> and <span class='high'></span></h2>
+    <p class='answer'></p>
+  </section>
 
   <script src="main.js"></script>
 </body>
