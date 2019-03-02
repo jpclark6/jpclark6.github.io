@@ -21,17 +21,21 @@
       <button class='play-button submit-guess'>Guess</button>
       <button class='play-button clear'>Clear</button>
     </div>
-    <p>Your last guess way</p> 
-    <span class='last-guess'></span>
-    <p class='last-guess-result'></p>
+    <div class='reply'>
+      <p class='last-guess-note'></p> 
+      <span class='last-guess'></span>
+      <p class='last-guess-result'></p>
+      <button class='reset'>Reset</button>
+    </div>
     
-    <button class='reset'>Reset</button>
-    
-    <form>
-      Min: <input type='number' class='min-number'>
-      Max: <input type='number' class='max-number'>
-    </form>
-    <button class='change-range'>Change Range</button>
+    <div class='change-range'>
+      <form>
+        <p>Minimum <input type='number' class='min-number'></p>
+        <p>Maximum <input type='number' class='max-number'></p>
+      </form>
+      <button class='change-range'>Change Range</button>
+    </div>
+
     <h2>Currently guessing between <span class='low'></span> and <span class='high'></span></h2>
     <p class='answer'></p>
   </section>

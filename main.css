@@ -14,7 +14,7 @@ section {
 nav {
   background-color: #404041;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 h1 {
@@ -22,6 +22,11 @@ h1 {
   padding: 18px;
   margin: 0;
   text-align: center;
+}
+
+p {
+  color: #4A4A4B;
+  font-size: 22px;
 }
 
 #title-1 {
@@ -37,7 +42,7 @@ h1 {
 .guess {
   width: 350px;
   height: 30px;
-  margin: 40px auto 36px auto;
+  margin: 20px auto 16px auto;
   font-size: 20px;
   margin-left: 22px;
 }
@@ -45,6 +50,21 @@ h1 {
 .buttons {
   display: flex;
   justify-content: center;
+}
+
+.reply {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.last-guess {
+  font-size: 200px;
+  color: #EB028B;
+  font-weight: 300;
+  line-height: 200px;
+  height: 205px;
 }
 
 button {
@@ -59,7 +79,44 @@ button:hover {
   background-color: #EB028B;
 }
 
+button:disabled {
+  background-color: #D0D2D3;
+  cursor: not-allowed;
+}
+
 .play-button {
   margin: 0 20px;
   width: 150px;
+}
+
+.reset {
+  width: 350px;
+}
+
+.change-range {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 18px auto 300px auto;
+}
+
+.change-range p {
+  margin: 0;
+}
+
+.change-range input {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  color: #4A4A4B;
+}
+
+.max-number {
+  margin-left: 17px;
+}
+
+.min-number {
+  margin-left: 22px;
 }

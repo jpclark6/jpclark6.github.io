@@ -17,6 +17,7 @@ function resetGame(){
   $('.max-number').val(maxNumber);
   $('.low').text(minNumber);
   $('.high').text(maxNumber);
+  $('.last-guess-note').text('')
 }
 
 $('.guess').on('keyup click', function(){
@@ -34,9 +35,10 @@ $('.submit-guess').on('click', function(e){
   e.preventDefault();
   var guess = parseInt($('.guess').val());
   if(guess > maxNumber || guess < minNumber){
-    $('.last-guess').text('Number out of range')
+    $('.last-guess-result').text('Number out of range')
   } else if(guess >= minNumber || guess <= maxNumber){
     $('.last-guess').text(guess)
+    $('.last-guess-note').text('Your last guess was')
     checkGuess(guess);
     guesses += 1;
     $('.guess').val('');
