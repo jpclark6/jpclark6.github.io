@@ -1,58 +1,94 @@
-var number = 0;
+var number;
 var guesses = 0;
 var minNumber = 1;
 var maxNumber = 100;
 
 function resetGame(){
-  number = parseInt(Math.random() * (maxNumber - minNumber) + minNumber);
-  console.log(number);
-  $('.answer').text(number);
+  number = findNewNumber();
   guesses = 0;
-  $('.last-guess').text('');
-  $('.last-guess-result').text('');
-  $('.reset').prop('disabled', true);
-  $('.guess').val('');
-  $('.clear').prop('disabled', true);
+  resetInputLimits();
+  updateLastGuessResult('');
+  updateLastGuess('');
+  disableReset(true);
+  disableClear(true);
+  updateGuessInput('');
+  updateNote('');
+  updateMinMax();
+  console.log('Answer is ' + number);
+}
+
+function updateMinMax(){
   $('.min-number').val(minNumber);
   $('.max-number').val(maxNumber);
-  $('.low').text(minNumber);
-  $('.high').text(maxNumber);
-  $('.last-guess-note').text('')
+}
+
+function findNewNumber() {
+  return parseInt(Math.random() * (maxNumber - minNumber) + minNumber);
+}
+
+function resetInputLimits(){
+  $('.guess').attr({ 'min': minNumber, 'max': maxNumber });
+}
+
+function updateLastGuess(txt){
+  $('.last-guess').text(txt);
+}
+
+function updateLastGuessResult(txt){
+  $('.last-guess-result').text(txt);
+}
+
+function updateGuessInput(txt){
+  $('.guess').val(txt);
+}
+
+function disableReset(tf){
+  $('.reset').prop('disabled', tf);
+}
+
+function disableClear(tf){
+  $('.clear').prop('disabled', tf);
+}
+
+function updateNote(note){
+  $('.last-guess-note').text(note);
 }
 
 $('.guess').on('keyup click', function(){
   var currentValue = $('.guess').val();
   if(currentValue === ''){
-    $('.clear').prop('disabled', true);
-    console.log('disable');
+    disableClear(true);
   } else {
-    $('.clear').prop('disabled', false);
-    console.log('enable');
+    disableClear(false);
   }
 });
 
 $('.submit-guess').on('click', function(e){
   e.preventDefault();
-  var guess = parseInt($('.guess').val());
-  if(guess > maxNumber || guess < minNumber){
-    $('.last-guess-result').text('Number out of range')
-  } else if(guess >= minNumber || guess <= maxNumber){
-    $('.last-guess').text(guess)
-    $('.last-guess-note').text('Your last guess was')
+  startCheckGuess();
+});
+
+function startCheckGuess(){
+  let guess = parseInt($('.guess').val());
+  if (guess > maxNumber || guess < minNumber) {
+    updateLastGuessResult('Number out of range');
+  } else if (guess >= minNumber || guess <= maxNumber) {
+    updateLastGuess(guess);
+    updateNote('Your last guess was');
     checkGuess(guess);
     guesses += 1;
     $('.guess').val('');
     $('.reset').prop('disabled', false);
     $('.clear').prop('disabled', true);
   } else {
-    $('.last-guess').text('Invalid guess')
+    updateLastGuess('Invalid guess');
   }
-});
+}
 
 $('.clear').on('click', function(e){
   e.preventDefault();
-  $('.guess').val('');
-  $('.clear').prop('disabled', true);
+  updateGuessInput('');
+  disableClear(true);
 });
 
 $('.reset').on('click', function(e){
@@ -67,11 +103,12 @@ function checkGuess(guess){
   } else if(guess < number){
     answer = 'That is too low';
   } else {
-    answer = 'BOOM! Range has been increased by 20';
+    answer = 'BOOM!';
+    updateNote('Max/min increased by 20');
     maxNumber += 10;
     minNumber -= 10;
   }
-  $('.last-guess-result').text(answer);
+  updateLastGuessResult(answer)
 }
 
 $('.change-range').on('click', function(e){
