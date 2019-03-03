@@ -98,7 +98,7 @@ button:disabled {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 18px auto 300px auto;
+  margin: 18px auto;
 }
 
 .change-range p {
