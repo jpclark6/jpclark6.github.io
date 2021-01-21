@@ -1,3 +1,14 @@
-/*Typography*/
-html {
-  font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif; }
+body {
+  background: #0f0f23;
+  color: #cccccc;
+  font-family: "Source Code Pro", monospace;
+  font-size: 14pt;
+  min-width: 60em;
+}
+a:hover, a:focus {
+  color: #b3b3b3;
+}
+h1, h2 {
+  font-size: 1em;
+  font-weight: normal;
+}
